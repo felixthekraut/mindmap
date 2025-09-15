@@ -108,3 +108,10 @@ Notes on UI choices
 
 ## License
 MIT License — see LICENSE for full text.
+
+## Contributing
+This repo doesn’t accept direct pushes from external contributors.
+1. Fork the repo to your account.
+2. Create a feature branch in your fork.
+3. Open a Pull Request against `main`.
+A review from @felixthekraut is required for merge.
