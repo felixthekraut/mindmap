@@ -1,0 +1,946 @@
+{
+"version": 1,
+"map": {
+"id": "map_20250914_skin_ct",
+"title": "Skin & Connective Tissues",
+"bgColor": "#F6F7FB",
+"rootId": "n_1",
+"nodes": {
+"n_1": {
+"id": "n_1",
+"title": "Skin & Connective Tissues",
+"description": "High-yield map: skin layers, connective tissue types, ECM, cells, fascia/membranes, and clinical pearls.",
+"parentId": null,
+"children": ["n_2","n_3","n_4","n_5","n_6","n_7"],
+"collapsed": false,
+"color": "#ffffff"
+},
+
+  "n_2": {
+    "id": "n_2",
+    "title": "Skin (Integument)",
+    "description": "Largest organ (~15% body weight). Cutaneous membrane = epidermis + dermis; rests on hypodermis.",
+    "parentId": "n_1",
+    "children": ["n_8","n_9","n_10","n_11","n_12","n_13"],
+    "collapsed": false,
+    "color": "#ffffff"
+  },
+
+  "n_8": {
+    "id": "n_8",
+    "title": "Epidermis",
+    "description": "Keratinized stratified squamous epithelium; avascular; nourished by dermis.",
+    "parentId": "n_2",
+    "children": ["n_14","n_15","n_16","n_17"],
+    "collapsed": false,
+    "color": "#ffffff"
+  },
+  "n_14": {
+    "id": "n_14",
+    "title": "Strata (deep → superficial)",
+    "description": "",
+    "parentId": "n_8",
+    "children": ["n_18","n_19","n_20","n_21","n_22"],
+    "collapsed": false,
+    "color": "#ffffff"
+  },
+  "n_18": {
+    "id": "n_18",
+    "title": "Stratum basale",
+    "description": "Stem cells; melanocytes; Merkel cells. Desmosomes + hemidesmosomes.",
+    "parentId": "n_14",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_19": {
+    "id": "n_19",
+    "title": "Stratum spinosum",
+    "description": "‘Prickle’ cells w/ desmosomes; Langerhans (APCs).",
+    "parentId": "n_14",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_20": {
+    "id": "n_20",
+    "title": "Stratum granulosum",
+    "description": "Keratohyalin granules; lipid barrier formation.",
+    "parentId": "n_14",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_21": {
+    "id": "n_21",
+    "title": "Stratum lucidum (thick only)",
+    "description": "Translucent, anucleate keratinocytes (palms/soles).",
+    "parentId": "n_14",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_22": {
+    "id": "n_22",
+    "title": "Stratum corneum",
+    "description": "Flattened corneocytes; barrier to water/pathogens.",
+    "parentId": "n_14",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_15": {
+    "id": "n_15",
+    "title": "Key cells",
+    "description": "Keratinocytes, melanocytes, Langerhans cells, Merkel cells.",
+    "parentId": "n_8",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_16": {
+    "id": "n_16",
+    "title": "Thick vs Thin skin",
+    "description": "Thick: no hair, prominent lucidum (palms/soles). Thin: hair present, fewer strata.",
+    "parentId": "n_8",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_17": {
+    "id": "n_17",
+    "title": "Turnover",
+    "description": "~28 days basale → corneum (faster with injury).",
+    "parentId": "n_8",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+
+  "n_9": {
+    "id": "n_9",
+    "title": "Dermis",
+    "description": "Connective tissue support layer under epidermis.",
+    "parentId": "n_2",
+    "children": ["n_23","n_24","n_25","n_26"],
+    "collapsed": false,
+    "color": "#ffffff"
+  },
+  "n_23": {
+    "id": "n_23",
+    "title": "Papillary layer",
+    "description": "Loose areolar CT; dermal papillae; capillaries; Meissner corpuscles.",
+    "parentId": "n_9",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_24": {
+    "id": "n_24",
+    "title": "Reticular layer",
+    "description": "Dense irregular CT (type I collagen + elastin); tensile strength & elasticity.",
+    "parentId": "n_9",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_25": {
+    "id": "n_25",
+    "title": "Structures",
+    "description": "Blood/lymph vessels, nerves, hair follicles, arrector pili; eccrine/apocrine/sebaceous glands.",
+    "parentId": "n_9",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_26": {
+    "id": "n_26",
+    "title": "Langer’s (tension) lines",
+    "description": "Collagen orientation; incisions parallel heal better.",
+    "parentId": "n_9",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+
+  "n_10": {
+    "id": "n_10",
+    "title": "Hypodermis (Subcutaneous)",
+    "description": "Not skin proper; loose areolar + adipose; connects to fascia.",
+    "parentId": "n_2",
+    "children": ["n_27","n_28","n_29"],
+    "collapsed": false,
+    "color": "#ffffff"
+  },
+  "n_27": {
+    "id": "n_27",
+    "title": "Composition",
+    "description": "Adipose lobules with septa; vessels & nerves traverse.",
+    "parentId": "n_10",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_28": {
+    "id": "n_28",
+    "title": "Functions",
+    "description": "Insulation, padding, energy storage, passageway for neurovascular bundles.",
+    "parentId": "n_10",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_29": {
+    "id": "n_29",
+    "title": "Clinical",
+    "description": "Common injection site; cellulitis spreads here.",
+    "parentId": "n_10",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+
+  "n_11": {
+    "id": "n_11",
+    "title": "Appendages",
+    "description": "",
+    "parentId": "n_2",
+    "children": ["n_30","n_31","n_32"],
+    "collapsed": false,
+    "color": "#ffffff"
+  },
+  "n_30": {
+    "id": "n_30",
+    "title": "Hair & follicles",
+    "description": "Hair shaft/follicle/bulb; arrector pili (sympathetic).",
+    "parentId": "n_11",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_31": {
+    "id": "n_31",
+    "title": "Glands",
+    "description": "",
+    "parentId": "n_11",
+    "children": ["n_33","n_34","n_35"],
+    "collapsed": false,
+    "color": "#ffffff"
+  },
+  "n_33": {
+    "id": "n_33",
+    "title": "Eccrine (merocrine) sweat",
+    "description": "Thermoregulation; opens onto skin; widespread.",
+    "parentId": "n_31",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_34": {
+    "id": "n_34",
+    "title": "Apocrine sweat",
+    "description": "Axilla/areola/anogenital; scent; opens into hair follicles.",
+    "parentId": "n_31",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_35": {
+    "id": "n_35",
+    "title": "Sebaceous (holocrine)",
+    "description": "Sebum into follicles; lubricates skin/hair.",
+    "parentId": "n_31",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_32": {
+    "id": "n_32",
+    "title": "Nails",
+    "description": "Hard keratin plates; matrix drives growth.",
+    "parentId": "n_11",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+
+  "n_12": {
+    "id": "n_12",
+    "title": "Sensory receptors",
+    "description": "",
+    "parentId": "n_2",
+    "children": ["n_36","n_37","n_38","n_39","n_40"],
+    "collapsed": false,
+    "color": "#ffffff"
+  },
+  "n_36": {
+    "id": "n_36",
+    "title": "Merkel (touch)",
+    "description": "Slow-adapting; pressure/texture; stratum basale.",
+    "parentId": "n_12",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_37": {
+    "id": "n_37",
+    "title": "Meissner corpuscles",
+    "description": "Rapid-adapting; light touch; dermal papillae (glabrous).",
+    "parentId": "n_12",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_38": {
+    "id": "n_38",
+    "title": "Pacinian corpuscles",
+    "description": "Rapid; vibration/deep pressure; deep dermis/hypodermis.",
+    "parentId": "n_12",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_39": {
+    "id": "n_39",
+    "title": "Ruffini endings",
+    "description": "Slow; skin stretch; joint proprioception.",
+    "parentId": "n_12",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_40": {
+    "id": "n_40",
+    "title": "Free nerve endings",
+    "description": "Pain, temperature, crude touch (epidermis/dermis).",
+    "parentId": "n_12",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+
+  "n_13": {
+    "id": "n_13",
+    "title": "Functions of skin",
+    "description": "",
+    "parentId": "n_2",
+    "children": ["n_41","n_42","n_43","n_44","n_45"],
+    "collapsed": false,
+    "color": "#ffffff"
+  },
+  "n_41": {
+    "id": "n_41",
+    "title": "Protection",
+    "description": "Barrier vs pathogens, UV (melanin), water loss.",
+    "parentId": "n_13",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_42": {
+    "id": "n_42",
+    "title": "Thermoregulation",
+    "description": "Sweat; vasodilation/vasoconstriction; insulation.",
+    "parentId": "n_13",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_43": {
+    "id": "n_43",
+    "title": "Sensation",
+    "description": "Mechanoreceptors, nociceptors, thermoreceptors.",
+    "parentId": "n_13",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_44": {
+    "id": "n_44",
+    "title": "Metabolic",
+    "description": "Vitamin D synthesis; lipid storage.",
+    "parentId": "n_13",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_45": {
+    "id": "n_45",
+    "title": "Immune",
+    "description": "Langerhans cells; antimicrobial peptides.",
+    "parentId": "n_13",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+
+  "n_3": {
+    "id": "n_3",
+    "title": "Connective Tissue Types",
+    "description": "Proper (loose/dense), cartilage, bone, blood/lymph.",
+    "parentId": "n_1",
+    "children": ["n_50","n_51","n_52","n_53"],
+    "collapsed": false,
+    "color": "#ffffff"
+  },
+
+  "n_50": {
+    "id": "n_50",
+    "title": "Proper",
+    "description": "Loose vs dense (fiber content/orientation).",
+    "parentId": "n_3",
+    "children": ["n_54","n_55"],
+    "collapsed": false,
+    "color": "#ffffff"
+  },
+  "n_54": {
+    "id": "n_54",
+    "title": "Loose CT",
+    "description": "More cells/ground substance than fibers.",
+    "parentId": "n_50",
+    "children": ["n_56","n_57","n_58"],
+    "collapsed": false,
+    "color": "#ffffff"
+  },
+  "n_56": {
+    "id": "n_56",
+    "title": "Areolar",
+    "description": "Under epithelia (lamina propria); packing; immune surveillance.",
+    "parentId": "n_54",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_57": {
+    "id": "n_57",
+    "title": "Adipose",
+    "description": "White/brown fat; energy & endocrine (leptin).",
+    "parentId": "n_54",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_58": {
+    "id": "n_58",
+    "title": "Reticular",
+    "description": "Stroma of lymphoid organs; type III collagen.",
+    "parentId": "n_54",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_55": {
+    "id": "n_55",
+    "title": "Dense CT",
+    "description": "More fibers than cells; strong.",
+    "parentId": "n_50",
+    "children": ["n_59","n_60","n_61"],
+    "collapsed": false,
+    "color": "#ffffff"
+  },
+  "n_59": {
+    "id": "n_59",
+    "title": "Dense regular",
+    "description": "Parallel type I collagen (tendons/ligaments).",
+    "parentId": "n_55",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_60": {
+    "id": "n_60",
+    "title": "Dense irregular",
+    "description": "Interwoven collagen bundles (dermis, organ capsules).",
+    "parentId": "n_55",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_61": {
+    "id": "n_61",
+    "title": "Elastic",
+    "description": "Elastic fibers (aorta, ligamentum flavum).",
+    "parentId": "n_55",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+
+  "n_51": {
+    "id": "n_51",
+    "title": "Cartilage",
+    "description": "Chondrocytes in lacunae; avascular; type II collagen core.",
+    "parentId": "n_3",
+    "children": ["n_62","n_63","n_64"],
+    "collapsed": false,
+    "color": "#ffffff"
+  },
+  "n_62": {
+    "id": "n_62",
+    "title": "Hyaline",
+    "description": "Most common; articular surfaces, trachea; perichondrium (except articular).",
+    "parentId": "n_51",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_63": {
+    "id": "n_63",
+    "title": "Elastic",
+    "description": "Elastic fibers; ear, epiglottis.",
+    "parentId": "n_51",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_64": {
+    "id": "n_64",
+    "title": "Fibrocartilage",
+    "description": "Type I + II collagen; IV discs, menisci; no perichondrium.",
+    "parentId": "n_51",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+
+  "n_52": {
+    "id": "n_52",
+    "title": "Bone",
+    "description": "Mineralized ECM (hydroxyapatite); vascular.",
+    "parentId": "n_3",
+    "children": ["n_65","n_66"],
+    "collapsed": false,
+    "color": "#ffffff"
+  },
+  "n_65": {
+    "id": "n_65",
+    "title": "Compact (cortical)",
+    "description": "Osteons (Haversian systems); diaphyses; strength.",
+    "parentId": "n_52",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_66": {
+    "id": "n_66",
+    "title": "Spongy (trabecular)",
+    "description": "Trabeculae; marrow spaces; metabolically active.",
+    "parentId": "n_52",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+
+  "n_53": {
+    "id": "n_53",
+    "title": "Blood & Lymph",
+    "description": "Fluid CTs for transport & immunity.",
+    "parentId": "n_3",
+    "children": ["n_67","n_68"],
+    "collapsed": false,
+    "color": "#ffffff"
+  },
+  "n_67": {
+    "id": "n_67",
+    "title": "Blood",
+    "description": "Cells in plasma; RBCs, WBCs, platelets.",
+    "parentId": "n_53",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_68": {
+    "id": "n_68",
+    "title": "Lymph",
+    "description": "Interstitial fluid return; immune cell trafficking.",
+    "parentId": "n_53",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+
+  "n_4": {
+    "id": "n_4",
+    "title": "ECM & Fibers",
+    "description": "Collagen types, elastic/reticular fibers, ground substance, basement membrane.",
+    "parentId": "n_1",
+    "children": ["n_70","n_71","n_72","n_73","n_74"],
+    "collapsed": false,
+    "color": "#ffffff"
+  },
+  "n_70": {
+    "id": "n_70",
+    "title": "Collagen",
+    "description": "Most abundant protein; tensile strength.",
+    "parentId": "n_4",
+    "children": ["n_75","n_76","n_77","n_78"],
+    "collapsed": false,
+    "color": "#ffffff"
+  },
+  "n_75": {
+    "id": "n_75",
+    "title": "Type I",
+    "description": "Bone, skin, tendon; scar tissue.",
+    "parentId": "n_70",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_76": {
+    "id": "n_76",
+    "title": "Type II",
+    "description": "Cartilage (hyaline, elastic).",
+    "parentId": "n_70",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_77": {
+    "id": "n_77",
+    "title": "Type III (reticular)",
+    "description": "Lymphoid organs, vessels; early wound healing.",
+    "parentId": "n_70",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_78": {
+    "id": "n_78",
+    "title": "Type IV",
+    "description": "Basement membranes; network-forming.",
+    "parentId": "n_70",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_71": {
+    "id": "n_71",
+    "title": "Elastic fibers",
+    "description": "Elastin + fibrillin; recoil; degrade with aging/Marfan.",
+    "parentId": "n_4",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_72": {
+    "id": "n_72",
+    "title": "Reticular fibers",
+    "description": "Type III collagen; delicate stroma.",
+    "parentId": "n_4",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_73": {
+    "id": "n_73",
+    "title": "Ground substance",
+    "description": "Hydrated gel (GAGs like hyaluronan/chondroitin, proteoglycans, glycoproteins: fibronectin/laminin); diffusion & compression resistance.",
+    "parentId": "n_4",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_74": {
+    "id": "n_74",
+    "title": "Basement membrane",
+    "description": "Basal lamina (type IV collagen, laminin) + reticular lamina.",
+    "parentId": "n_4",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+
+  "n_5": {
+    "id": "n_5",
+    "title": "Cells",
+    "description": "Resident, immune/transient, and specialized skeletal cells.",
+    "parentId": "n_1",
+    "children": ["n_83","n_84","n_85"],
+    "collapsed": false,
+    "color": "#ffffff"
+  },
+  "n_83": {
+    "id": "n_83",
+    "title": "Resident",
+    "description": "",
+    "parentId": "n_5",
+    "children": ["n_86","n_87","n_88"],
+    "collapsed": false,
+    "color": "#ffffff"
+  },
+  "n_86": {
+    "id": "n_86",
+    "title": "Fibroblasts",
+    "description": "Synthesize fibers & ground substance.",
+    "parentId": "n_83",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_87": {
+    "id": "n_87",
+    "title": "Adipocytes",
+    "description": "Energy storage; endocrine (e.g., leptin).",
+    "parentId": "n_83",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_88": {
+    "id": "n_88",
+    "title": "Pericytes",
+    "description": "Around capillaries; support & repair.",
+    "parentId": "n_83",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_84": {
+    "id": "n_84",
+    "title": "Immune/Transient",
+    "description": "",
+    "parentId": "n_5",
+    "children": ["n_89","n_90","n_91","n_92"],
+    "collapsed": false,
+    "color": "#ffffff"
+  },
+  "n_89": {
+    "id": "n_89",
+    "title": "Macrophages",
+    "description": "Phagocytosis; antigen presentation.",
+    "parentId": "n_84",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_90": {
+    "id": "n_90",
+    "title": "Mast cells",
+    "description": "Histamine/heparin; allergy & defense.",
+    "parentId": "n_84",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_91": {
+    "id": "n_91",
+    "title": "Plasma cells",
+    "description": "Antibody-producing B cells (clock-face chromatin).",
+    "parentId": "n_84",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_92": {
+    "id": "n_92",
+    "title": "Leukocytes",
+    "description": "Neutrophils, eosinophils, lymphocytes, etc.",
+    "parentId": "n_84",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_85": {
+    "id": "n_85",
+    "title": "Specialized skeletal",
+    "description": "",
+    "parentId": "n_5",
+    "children": ["n_93","n_94","n_95"],
+    "collapsed": false,
+    "color": "#ffffff"
+  },
+  "n_93": {
+    "id": "n_93",
+    "title": "Chondrocytes",
+    "description": "Maintain cartilage matrix.",
+    "parentId": "n_85",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_94": {
+    "id": "n_94",
+    "title": "Osteoblasts/osteocytes",
+    "description": "Bone formation & maintenance.",
+    "parentId": "n_85",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_95": {
+    "id": "n_95",
+    "title": "Osteoclasts",
+    "description": "Bone resorption (multinucleated).",
+    "parentId": "n_85",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+
+  "n_6": {
+    "id": "n_6",
+    "title": "Fascia & Membranes",
+    "description": "CT wrappings and epithelial membranes.",
+    "parentId": "n_1",
+    "children": ["n_96","n_97"],
+    "collapsed": false,
+    "color": "#ffffff"
+  },
+  "n_96": {
+    "id": "n_96",
+    "title": "Fascia",
+    "description": "",
+    "parentId": "n_6",
+    "children": ["n_98","n_99","n_100"],
+    "collapsed": false,
+    "color": "#ffffff"
+  },
+  "n_98": {
+    "id": "n_98",
+    "title": "Superficial (subcutaneous)",
+    "description": "Loose areolar + adipose; vessels & nerves.",
+    "parentId": "n_96",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_99": {
+    "id": "n_99",
+    "title": "Deep fascia",
+    "description": "Dense regular/irregular CT; invests muscles; forms septa.",
+    "parentId": "n_96",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_100": {
+    "id": "n_100",
+    "title": "Visceral fascia",
+    "description": "Surrounds organs; mesenteries.",
+    "parentId": "n_96",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_97": {
+    "id": "n_97",
+    "title": "Membranes",
+    "description": "Epithelial + CT sheets.",
+    "parentId": "n_6",
+    "children": ["n_101","n_102","n_103","n_104"],
+    "collapsed": false,
+    "color": "#ffffff"
+  },
+  "n_101": {
+    "id": "n_101",
+    "title": "Cutaneous",
+    "description": "Skin: epidermis + dermis.",
+    "parentId": "n_97",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_102": {
+    "id": "n_102",
+    "title": "Mucous",
+    "description": "Line cavities opening to outside; lamina propria.",
+    "parentId": "n_97",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_103": {
+    "id": "n_103",
+    "title": "Serous",
+    "description": "Parietal/visceral layers; pleura, pericardium, peritoneum.",
+    "parentId": "n_97",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_104": {
+    "id": "n_104",
+    "title": "Synovial",
+    "description": "Line joint cavities; secrete synovial fluid.",
+    "parentId": "n_97",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+
+  "n_7": {
+    "id": "n_7",
+    "title": "Clinical Pearls",
+    "description": "",
+    "parentId": "n_1",
+    "children": ["n_105","n_106","n_107","n_108","n_109","n_110"],
+    "collapsed": false,
+    "color": "#ffffff"
+  },
+  "n_105": {
+    "id": "n_105",
+    "title": "Burn depth",
+    "description": "1°: epidermis; 2°: + dermis (blisters); 3°: full-thickness.",
+    "parentId": "n_7",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_106": {
+    "id": "n_106",
+    "title": "Blisters",
+    "description": "Fluid separation at epidermal-dermal junction.",
+    "parentId": "n_7",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_107": {
+    "id": "n_107",
+    "title": "Langer’s lines",
+    "description": "Incisions parallel → better healing & less scarring.",
+    "parentId": "n_7",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_108": {
+    "id": "n_108",
+    "title": "Striae (stretch marks)",
+    "description": "Dermal collagen tears from rapid stretching.",
+    "parentId": "n_7",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_109": {
+    "id": "n_109",
+    "title": "Aging skin",
+    "description": "↓ collagen/elastin; thinning; impaired repair.",
+    "parentId": "n_7",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  },
+  "n_110": {
+    "id": "n_110",
+    "title": "Cellulitis",
+    "description": "Bacterial infection spreading in subcutis/hypodermis.",
+    "parentId": "n_7",
+    "children": [],
+    "collapsed": true,
+    "color": "#ffffff"
+  }
+}
+
+},
+"positions": {},
+"viewport": {
+"x": 0,
+"y": 0,
+"zoom": 1.0
+},
+"ui": {
+"layoutDensity": "compact"
+}
+}

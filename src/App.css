@@ -1,0 +1,56 @@
+/* Basic utility styles for forms/buttons to keep UI clean and modern */
+:root {
+  --accent: #0ea5e9;
+  --accent-600: #0284c7;
+  --border: #cbd5e1;
+}
+
+.input {
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 14px;
+}
+.input:focus { outline: 2px solid rgba(2,132,199,0.2); }
+
+button.primary {
+  padding: 8px 12px;
+  background: var(--accent);
+  color: white;
+  border: 1px solid var(--accent-600);
+  border-radius: 8px;
+  font-weight: 600;
+}
+button.primary:hover { background: var(--accent-600); }
+
+button.ghost {
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #ffffffcc;
+}
+
+
+/* Small circular icon button with subtle hover effect */
+.icon-btn {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffffee;
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 6px rgba(15,23,42,0.08);
+  transition: transform 120ms ease, box-shadow 120ms ease, background-color 120ms ease;
+}
+.icon-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(15,23,42,0.12);
+  background: #ffffff;
+}
+.icon-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(15,23,42,0.08);
+}

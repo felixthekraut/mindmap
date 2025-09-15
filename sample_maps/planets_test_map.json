@@ -1,0 +1,379 @@
+{
+  "version": 1,
+  "map": {
+    "id": "map_20250914_solar_planets",
+    "title": "Solar System Planets",
+    "bgColor": "#F6F7FB",
+    "rootId": "n_1",
+    "nodes": {
+      "n_1": {
+        "id": "n_1",
+        "title": "Solar System Planets",
+        "description": "Eight planets with discovery notes, main composition, and orbital facts.",
+        "parentId": null,
+        "children": [
+          "n_2",
+          "n_3",
+          "n_4",
+          "n_5",
+          "n_6",
+          "n_7",
+          "n_8",
+          "n_9"
+        ],
+        "collapsed": false,
+        "color": "#ffffff"
+      },
+      "n_2": {
+        "id": "n_2",
+        "title": "Mercury",
+        "description": "Smallest, closest to Sun.",
+        "parentId": "n_1",
+        "children": [
+          "n_10",
+          "n_11",
+          "n_12"
+        ],
+        "collapsed": true,
+        "color": "#b8b8b8"
+      },
+      "n_10": {
+        "id": "n_10",
+        "title": "Discovered",
+        "description": "Known since antiquity (naked-eye).",
+        "parentId": "n_2",
+        "children": [],
+        "collapsed": true,
+        "color": "#ffffff"
+      },
+      "n_11": {
+        "id": "n_11",
+        "title": "Main composition",
+        "description": "Rocky silicate crust/mantle (thin) over a very large iron–nickel core; surface silicates like olivine/pyroxene.",
+        "parentId": "n_2",
+        "children": [],
+        "collapsed": true,
+        "color": "#ffffff"
+      },
+      "n_12": {
+        "id": "n_12",
+        "title": "Orbit",
+        "description": "a ≈ 0.387 AU; period ≈ 88 days; e ≈ 0.206 (most eccentric of inner planets).",
+        "parentId": "n_2",
+        "children": [],
+        "collapsed": true,
+        "color": "#ffffff"
+      },
+      "n_3": {
+        "id": "n_3",
+        "title": "Venus",
+        "description": "Similar size to Earth; dense CO₂ atmosphere.",
+        "parentId": "n_1",
+        "children": [
+          "n_13",
+          "n_14",
+          "n_15"
+        ],
+        "collapsed": true,
+        "color": "#f4e1a1"
+      },
+      "n_13": {
+        "id": "n_13",
+        "title": "Discovered",
+        "description": "Known since antiquity (naked-eye).",
+        "parentId": "n_3",
+        "children": [],
+        "collapsed": true,
+        "color": "#ffffff"
+      },
+      "n_14": {
+        "id": "n_14",
+        "title": "Main composition",
+        "description": "Basaltic silicate crust and mantle; iron–nickel core.",
+        "parentId": "n_3",
+        "children": [],
+        "collapsed": true,
+        "color": "#ffffff"
+      },
+      "n_15": {
+        "id": "n_15",
+        "title": "Orbit",
+        "description": "a ≈ 0.723 AU; period ≈ 224.7 days; e ≈ 0.007 (nearly circular).",
+        "parentId": "n_3",
+        "children": [],
+        "collapsed": true,
+        "color": "#ffffff"
+      },
+      "n_4": {
+        "id": "n_4",
+        "title": "Earth",
+        "description": "Our home world.",
+        "parentId": "n_1",
+        "children": [
+          "n_16",
+          "n_17",
+          "n_18"
+        ],
+        "collapsed": true,
+        "color": "#2a6ff2"
+      },
+      "n_16": {
+        "id": "n_16",
+        "title": "Discovered",
+        "description": "Known since prehistory; recognized as a planet in the Copernican model (16th century).",
+        "parentId": "n_4",
+        "children": [],
+        "collapsed": true,
+        "color": "#ffffff"
+      },
+      "n_17": {
+        "id": "n_17",
+        "title": "Main composition",
+        "description": "Silicate mantle (olivine/pyroxene); oceanic basalt & continental granite crust; iron–nickel core.",
+        "parentId": "n_4",
+        "children": [],
+        "collapsed": true,
+        "color": "#ffffff"
+      },
+      "n_18": {
+        "id": "n_18",
+        "title": "Orbit",
+        "description": "a ≈ 1.000 AU; period ≈ 365.25 days; e ≈ 0.017.",
+        "parentId": "n_4",
+        "children": [],
+        "collapsed": true,
+        "color": "#ffffff"
+      },
+      "n_5": {
+        "id": "n_5",
+        "title": "Mars",
+        "description": "The Red Planet.",
+        "parentId": "n_1",
+        "children": [
+          "n_19",
+          "n_20",
+          "n_21"
+        ],
+        "collapsed": true,
+        "color": "#c1440e"
+      },
+      "n_19": {
+        "id": "n_19",
+        "title": "Discovered",
+        "description": "Known since antiquity (naked-eye).",
+        "parentId": "n_5",
+        "children": [],
+        "collapsed": true,
+        "color": "#ffffff"
+      },
+      "n_20": {
+        "id": "n_20",
+        "title": "Main composition",
+        "description": "Basaltic crust with iron oxides (hematite) causing red hue; silicate mantle; iron–nickel core.",
+        "parentId": "n_5",
+        "children": [],
+        "collapsed": true,
+        "color": "#ffffff"
+      },
+      "n_21": {
+        "id": "n_21",
+        "title": "Orbit",
+        "description": "a ≈ 1.524 AU; period ≈ 687 days; e ≈ 0.093.",
+        "parentId": "n_5",
+        "children": [],
+        "collapsed": true,
+        "color": "#ffffff"
+      },
+      "n_6": {
+        "id": "n_6",
+        "title": "Jupiter",
+        "description": "Largest planet; banded atmosphere.",
+        "parentId": "n_1",
+        "children": [
+          "n_22",
+          "n_23",
+          "n_24"
+        ],
+        "collapsed": true,
+        "color": "#d2b48c"
+      },
+      "n_22": {
+        "id": "n_22",
+        "title": "Discovered",
+        "description": "Known since antiquity (naked-eye).",
+        "parentId": "n_6",
+        "children": [],
+        "collapsed": true,
+        "color": "#ffffff"
+      },
+      "n_23": {
+        "id": "n_23",
+        "title": "Main composition",
+        "description": "Gas giant: mostly H/He; cloud layers of ammonia, ammonium hydrosulfide, and water; deep metallic hydrogen; likely rock/ice core.",
+        "parentId": "n_6",
+        "children": [],
+        "collapsed": true,
+        "color": "#ffffff"
+      },
+      "n_24": {
+        "id": "n_24",
+        "title": "Orbit",
+        "description": "a ≈ 5.203 AU; period ≈ 11.86 years; e ≈ 0.049.",
+        "parentId": "n_6",
+        "children": [],
+        "collapsed": true,
+        "color": "#ffffff"
+      },
+      "n_7": {
+        "id": "n_7",
+        "title": "Saturn",
+        "description": "Famous ring system.",
+        "parentId": "n_1",
+        "children": [
+          "n_25",
+          "n_26",
+          "n_27"
+        ],
+        "collapsed": true,
+        "color": "#f0e68c"
+      },
+      "n_25": {
+        "id": "n_25",
+        "title": "Discovered",
+        "description": "Known since antiquity (naked-eye).",
+        "parentId": "n_7",
+        "children": [],
+        "collapsed": true,
+        "color": "#ffffff"
+      },
+      "n_26": {
+        "id": "n_26",
+        "title": "Main composition",
+        "description": "Gas giant: mostly H/He; ammonia ice clouds; metallic hydrogen interior; probable rock/ice core.",
+        "parentId": "n_7",
+        "children": [],
+        "collapsed": true,
+        "color": "#ffffff"
+      },
+      "n_27": {
+        "id": "n_27",
+        "title": "Orbit",
+        "description": "a ≈ 9.537 AU; period ≈ 29.46 years; e ≈ 0.057.",
+        "parentId": "n_7",
+        "children": [],
+        "collapsed": true,
+        "color": "#ffffff"
+      },
+      "n_8": {
+        "id": "n_8",
+        "title": "Uranus",
+        "description": "Ice giant; rotates on its side.",
+        "parentId": "n_1",
+        "children": [
+          "n_28",
+          "n_29",
+          "n_30"
+        ],
+        "collapsed": true,
+        "color": "#7fffd4"
+      },
+      "n_28": {
+        "id": "n_28",
+        "title": "Discovered",
+        "description": "1781 — William Herschel (first planet discovered with a telescope).",
+        "parentId": "n_8",
+        "children": [],
+        "collapsed": true,
+        "color": "#ffffff"
+      },
+      "n_29": {
+        "id": "n_29",
+        "title": "Main composition",
+        "description": "Ice giant: water, ammonia, methane ices; H/He atmosphere; rock/ice core.",
+        "parentId": "n_8",
+        "children": [],
+        "collapsed": true,
+        "color": "#ffffff"
+      },
+      "n_30": {
+        "id": "n_30",
+        "title": "Orbit",
+        "description": "a ≈ 19.19 AU; period ≈ 84.0 years; e ≈ 0.047.",
+        "parentId": "n_8",
+        "children": [],
+        "collapsed": true,
+        "color": "#ffffff"
+      },
+      "n_9": {
+        "id": "n_9",
+        "title": "Neptune",
+        "description": "Farthest known planet; deep blue hue.",
+        "parentId": "n_1",
+        "children": [
+          "n_31",
+          "n_32",
+          "n_33"
+        ],
+        "collapsed": true,
+        "color": "#1e90ff"
+      },
+      "n_31": {
+        "id": "n_31",
+        "title": "Discovered",
+        "description": "1846 — Johann Galle & Heinrich d'Arrest (from Urbain Le Verrier's predictions; also predicted by John Couch Adams).",
+        "parentId": "n_9",
+        "children": [],
+        "collapsed": true,
+        "color": "#ffffff"
+      },
+      "n_32": {
+        "id": "n_32",
+        "title": "Main composition",
+        "description": "Ice giant: water, ammonia, methane ices; H/He atmosphere; rock/ice core.",
+        "parentId": "n_9",
+        "children": [],
+        "collapsed": true,
+        "color": "#ffffff"
+      },
+      "n_33": {
+        "id": "n_33",
+        "title": "Orbit",
+        "description": "a ≈ 30.07 AU; period ≈ 164.8 years; e ≈ 0.009.",
+        "parentId": "n_9",
+        "children": [],
+        "collapsed": true,
+        "color": "#ffffff"
+      }
+    }
+  },
+  "positions": {
+    "n_14": {
+      "x": -621,
+      "y": -162
+    },
+    "n_8": {
+      "x": 247,
+      "y": 238
+    },
+    "n_6": {
+      "x": 270,
+      "y": 117
+    },
+    "n_4": {
+      "x": 277,
+      "y": -58
+    },
+    "n_2": {
+      "x": 251,
+      "y": -174
+    }
+  },
+  "viewport": {
+    "x": 774,
+    "y": 366,
+    "zoom": 1
+  },
+  "ui": {
+    "layoutDensity": "compact"
+  }
+}
