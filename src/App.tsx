@@ -136,38 +136,38 @@ function App() {
   }
 
   return (
-    <div style={{ width: '100vw', height: '100vh', display: 'flex', flexDirection: 'column' }}>
+    <div className="mm-page">
       {!hasMap ? (
-        <div style={{ maxWidth: 720, margin: '48px auto', padding: 16 }}>
-          <h1 style={{ fontSize: 28, marginBottom: 8 }}>Create a Mind Map</h1>
-          <p style={{ marginBottom: 16, color: '#475569' }}>A lightweight, local mind mapping tool for study notes.</p>
+        <div className="mm-create-container">
+          <h1 className="mm-h1">Create a Mind Map</h1>
+          <p className="mm-paragraph">A lightweight, local mind mapping tool for study notes.</p>
 
-          <div style={{ display: 'grid', gap: 12 }}>
-            <label style={{ display: 'grid', gap: 6 }}>
+          <div className="mm-form">
+            <label className="mm-label">
               <span>Title (required)</span>
               <input value={title} onChange={(e) => setTitle(e.target.value)} placeholder="e.g., Biology - Cell Structure" className="input" />
             </label>
-            <label style={{ display: 'grid', gap: 6 }}>
+            <label className="mm-label">
               <span>Description (optional)</span>
               <textarea value={description} onChange={(e) => setDescription(e.target.value)} rows={3} className="input" />
             </label>
-            <label style={{ display: 'grid', gap: 6 }}>
+            <label className="mm-label">
               <span>Background color</span>
-              <input type="color" value={bgColor} onChange={(e) => setBgColor(e.target.value)} style={{ width: 56, height: 32, padding: 0, border: '1px solid #cbd5e1', borderRadius: 6 }} />
+              <input type="color" value={bgColor} onChange={(e) => setBgColor(e.target.value)} className="mm-color-input" />
             </label>
             <div>
               <button onClick={createMap} className="primary" title="Create mind map">Create</button>
             </div>
           </div>
-          <div style={{ position: 'absolute', zIndex: 10, left: 12, bottom: 12 }}>
+          <div className="mm-fab-container">
             <button className="ghost icon-btn" title="Shortcuts (Shift+/)" aria-label="Shortcuts" onClick={() => setShowHelp(true)}>?</button>
           </div>
           <HelpDialog open={showHelp} onClose={() => setShowHelp(false)} />
         </div>
       ) : (
-        <div style={{ flex: 1, minHeight: 0 }}>
-          <div style={{ position: 'absolute', zIndex: 10, left: 12, top: 12, display: 'flex', gap: 8, alignItems: 'center' }}>
-            <button ref={menuBtnRef} className="ghost" title="Menu" onClick={() => setMenuOpen((v) => !v)} style={{ width: 28, height: 28, padding: 0 }}>
+        <div className="mm-canvas-wrap">
+          <div className="mm-toolbar">
+            <button ref={menuBtnRef} className="ghost icon-btn" title="Menu" onClick={() => setMenuOpen((v) => !v)}>
               ⋮
             </button>
             <strong>{mind.map?.title}</strong>
@@ -175,28 +175,28 @@ function App() {
             <button className="ghost" title="Redo (Ctrl/Cmd+Shift+Z or Ctrl/Cmd+Y)" onClick={() => mind.redo()}>Redo</button>
 
             {menuOpen && (
-              <div ref={menuRef} style={{ position: 'absolute', left: 10, top: 40, minWidth: 220, background: '#fff', color: '#0f172a', border: '1px solid #cbd5e1', borderRadius: 8, boxShadow: '0 8px 24px rgba(15,23,42,0.12)', padding: 8 }}>
-                <div style={{ fontSize: 11, textTransform: 'uppercase', letterSpacing: 0.5, color: '#64748b', padding: '4px 8px' }}>File</div>
-                <button className="ghost" style={{ width: '100%', justifyContent: 'flex-start' }} onClick={() => { setMenuOpen(false); handleNew(); }}>New</button>
-                <button className="ghost" style={{ width: '100%', justifyContent: 'flex-start' }} onClick={() => { setMenuOpen(false); handleImportClick(); }}>Import…</button>
-                <button className="ghost" style={{ width: '100%', justifyContent: 'flex-start' }} onClick={() => { setMenuOpen(false); handleExport(); }}>Export JSON</button>
-                <div style={{ height: 1, background: '#e2e8f0', margin: '6px 4px' }} />
-                <div style={{ fontSize: 11, textTransform: 'uppercase', letterSpacing: 0.5, color: '#64748b', padding: '4px 8px' }}>View</div>
-                <button className="ghost" style={{ width: '100%', justifyContent: 'flex-start' }} onClick={() => { setMenuOpen(false); if (confirm('Reset manual positions and return to auto layout?')) mind.resetLayout(); }}>Reset layout</button>
-                <div style={{ padding: '4px 8px', display: 'grid', gap: 6 }}>
-                  <div style={{ fontSize: 12, color: '#475569', marginBottom: 2 }}>Density</div>
+              <div ref={menuRef} className="mm-menu-panel">
+                <div className="mm-menu-section-title">File</div>
+                <button className="ghost mm-menu-item" onClick={() => { setMenuOpen(false); handleNew(); }}>New</button>
+                <button className="ghost mm-menu-item" onClick={() => { setMenuOpen(false); handleImportClick(); }}>Import…</button>
+                <button className="ghost mm-menu-item" onClick={() => { setMenuOpen(false); handleExport(); }}>Export JSON</button>
+                <div className="mm-divider" />
+                <div className="mm-menu-section-title">View</div>
+                <button className="ghost mm-menu-item" onClick={() => { setMenuOpen(false); if (confirm('Reset manual positions and return to auto layout?')) mind.resetLayout(); }}>Reset layout</button>
+                <div className="mm-menu-section-body">
+                  <div className="mm-text-sm mm-text-muted mm-mb-2">Density</div>
                   {(['comfortable','compact','dense'] as const).map(opt => (
-                    <label key={opt} style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13, cursor: 'pointer' }}>
+                    <label key={opt} className="mm-radio-label">
                       <input type="radio" name="density" checked={mind.layoutDensity === opt} onChange={() => { mind.setLayoutDensity(opt); }} />
-                      <span style={{ textTransform: 'capitalize' }}>{opt}</span>
+                      <span className="mm-capitalize">{opt}</span>
                     </label>
                   ))}
                 </div>
               </div>
             )}
-            <input ref={fileInputRef} type="file" accept="application/json,.json" style={{ display: 'none' }} onChange={handleFileChange} />
+            <input ref={fileInputRef} type="file" accept="application/json,.json" className="mm-hidden" onChange={handleFileChange} />
           </div>
-          <div style={{ position: 'absolute', zIndex: 10, left: 12, bottom: 12 }}>
+          <div className="mm-fab-container">
             <button className="ghost icon-btn" title="Shortcuts (Shift+/)" aria-label="Shortcuts" onClick={() => setShowHelp(true)}>?</button>
           </div>
           <MindMapCanvas

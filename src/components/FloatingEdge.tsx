@@ -57,7 +57,7 @@ export default memo(function FloatingEdge(props: EdgeProps) {
       <BaseEdge id={props.id} path={path} markerEnd={props.markerEnd} style={props.style} />
       {props.label ? (
         <EdgeLabelRenderer>
-          <div style={{ position: 'absolute', transform: `translate(-50%, -50%) translate(${(sp.x + tp.x) / 2}px, ${(sp.y + tp.y) / 2}px)`, pointerEvents: 'all' }}>
+          <div className="mm-edge-label" style={{ transform: `translate(-50%, -50%) translate(${(sp.x + tp.x) / 2}px, ${(sp.y + tp.y) / 2}px)` }}>
             {props.label}
           </div>
         </EdgeLabelRenderer>
