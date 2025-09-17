@@ -8,6 +8,8 @@ export interface MindNode {
   children: NodeId[];
   collapsed: boolean;
   color?: string;
+  // UI-only settings (persist user intent, not pixel heights)
+  ui?: { isExpanded?: boolean };
 }
 
 export interface MindMapMeta {
@@ -38,6 +40,7 @@ export interface ReactFlowNodeData extends Record<string, unknown> {
   color?: string;
   parentId: NodeId | null;
   pendingEdit?: boolean;
+  ui?: { isExpanded?: boolean };
 }
 
 export type UndoAction =
