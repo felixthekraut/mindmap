@@ -1,4 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { clearDraft } from '../utils/drafts';
+
 import type { Edge, Node } from '@xyflow/react';
 import type { MindMap, MindNode, NodeId, ReactFlowNodeData, UndoAction } from '../types';
 import { computeTreeLayout } from '../layout';
@@ -281,7 +283,7 @@ export function useMindMap(initial?: MindMap) {
       collectSubtree(prev, id, subtree);
       const parentId = prev.nodes[id].parentId;
       const nodes = { ...prev.nodes };
-      for (const nid of Object.keys(subtree)) delete nodes[nid];
+      for (const nid of Object.keys(subtree)) { delete nodes[nid]; try { clearDraft(nid); } catch {} }
       if (parentId) {
         nodes[parentId] = {
           ...nodes[parentId],
