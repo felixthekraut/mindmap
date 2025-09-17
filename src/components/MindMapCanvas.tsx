@@ -18,6 +18,7 @@ export interface MindMapCanvasProps {
   onDelete: (id: string) => void;
   onNodeMoveStart: (id: string, x: number, y: number) => void;
   onNodeMoveEnd: (id: string, x: number, y: number) => void;
+  onSetNodeUi: (id: string, ui: { isExpanded?: boolean }) => void;
 }
 
 export default function MindMapCanvas(props: MindMapCanvasProps) {
@@ -36,9 +37,10 @@ export default function MindMapCanvas(props: MindMapCanvasProps) {
         onEdit={props.onEdit}
         onToggle={props.onToggle}
         onDelete={props.onDelete}
+        onSetNodeUi={props.onSetNodeUi}
       />
     ),
-  }), [props.onAddChild, props.onAddSibling, props.onFocusEdit, props.onEdit, props.onToggle, props.onDelete]);
+  }), [props.onAddChild, props.onAddSibling, props.onFocusEdit, props.onEdit, props.onToggle, props.onDelete, props.onSetNodeUi]);
 
   const onNodesChange = useCallback((changes: NodeChange<RFNode>[]) => {
     setLocalNodes((nds: RFNode[]) => applyNodeChanges<RFNode>(changes, nds));

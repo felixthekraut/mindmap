@@ -1,5 +1,5 @@
 import { memo, useEffect, useRef, useState } from 'react';
-import { Handle, Position, NodeToolbar } from '@xyflow/react';
+import { Handle, Position, NodeToolbar, useReactFlow } from '@xyflow/react';
 import type { Node, NodeProps } from '@xyflow/react';
 import type { ReactFlowNodeData } from '../types';
 import { getDraft, setDraft, clearDraft } from '../utils/drafts';
@@ -11,16 +11,24 @@ interface Props extends NodeProps<Node<ReactFlowNodeData>> {
   onEdit: (id: string, updates: { title?: string; description?: string; color?: string }) => void;
   onToggle: (id: string) => void;
   onDelete: (id: string) => void;
+  onSetNodeUi: (id: string, ui: { isExpanded?: boolean }) => void;
 }
 
 
 
-export default memo(function MindNode({ id, data, selected, onAddChild, onAddSibling, onFocusEdit, onEdit, onToggle, onDelete }: Props) {
+export default memo(function MindNode({ id, data, selected, onAddChild, onAddSibling, onFocusEdit, onEdit, onToggle, onDelete, onSetNodeUi }: Props) {
   const d = data as ReactFlowNodeData; // help TS in strict generic context
   const [editing, setEditing] = useState(Boolean(d.pendingEdit));
   const [title, setTitle] = useState(String(d.title));
   const [desc, setDesc] = useState(String(d.description ?? ''));
   const [color, setColor] = useState<string>(d.color ?? '#ffffff');
+  const rf = useReactFlow();
+  const taRef = useRef<HTMLTextAreaElement | null>(null);
+  const contentRef = useRef<HTMLDivElement | null>(null);
+  const [contentHeight, setContentHeight] = useState<number>(0);
+  const [maxHeight, setMaxHeight] = useState<number>(Math.min(window.innerHeight * 0.5, 480));
+  const isExpanded = Boolean((d as any).ui?.isExpanded);
+
   const rootRef = useRef<HTMLDivElement | null>(null);
 
   const [draftRestored, setDraftRestored] = useState(false);
@@ -99,10 +107,49 @@ export default memo(function MindNode({ id, data, selected, onAddChild, onAddSib
     return () => document.removeEventListener('pointerdown', handleDocPointerDown, true);
   }, [editing, onFocusEdit]);
 
+  // Auto-size textarea in edit mode
+  useEffect(() => {
+    if (!editing) return;
+    const ta = taRef.current;
+    if (!ta) return;
+    const size = () => {
+      ta.style.height = 'auto';
+      ta.style.height = `${ta.scrollHeight}px`;
+      requestAnimationFrame(() => { try { (rf as any).updateNodeInternals?.(id); } catch {} });
+    };
+    size();
+  }, [editing, desc, id, rf]);
+
+  // Track maxHeight responsively
+  useEffect(() => {
+    const onResize = () => setMaxHeight(Math.min(window.innerHeight * 0.5, 480));
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
+
+  // Measure read-mode content height (re-attach when leaving edit mode)
+  useEffect(() => {
+    const el = contentRef.current;
+    if (!el) return;
+    // Set an initial measurement immediately
+    setContentHeight(el.offsetHeight);
+    requestAnimationFrame(() => { try { (rf as any).updateNodeInternals?.(id); } catch {} });
+    const ro = new ResizeObserver(() => {
+      setContentHeight(el.offsetHeight);
+      requestAnimationFrame(() => { try { (rf as any).updateNodeInternals?.(id); } catch {} });
+    });
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, [rf, id, editing, d.description]);
+
   function save() { onEdit(id, { title, description: desc, color }); try { clearDraft(id); } catch {} setEditing(false); }
   function cancel() { try { clearDraft(id); } catch {} setTitle(String(d.title)); setDesc(String(d.description ?? '')); setColor(d.color ?? '#ffffff'); setEditing(false); }
 
   const collapsed = Boolean(d.collapsed);
+
+  const truncated = contentHeight > maxHeight;
+  const targetHeight = isExpanded ? contentHeight : Math.min(contentHeight, maxHeight);
+  const descId = `mn-desc-${id}`;
 
   return (
     <div ref={rootRef} onDoubleClick={() => { if (!editing) onFocusEdit(id); }} className="mm-node" data-selected={selected ? 'true' : undefined} style={{ ['--mn-color' as any]: (editing ? color : (d.color ?? 'transparent')) }}>
@@ -123,9 +170,13 @@ export default memo(function MindNode({ id, data, selected, onAddChild, onAddSib
                 if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); cancel(); onFocusEdit(null); return; }
               }} className="mm-input-tight mm-mb-4" />
               <textarea
+                ref={taRef}
                 value={desc}
                 onChange={(e) => setDesc(e.target.value)}
+                onInput={() => { const ta = taRef.current; if (ta) { ta.style.height = 'auto'; ta.style.height = `${ta.scrollHeight}px`; requestAnimationFrame(() => { try { (rf as any).updateNodeInternals?.(id); } catch {} }); } }}
+                onPaste={() => { setTimeout(() => { const ta = taRef.current; if (ta) { ta.style.height = 'auto'; ta.style.height = `${ta.scrollHeight}px`; requestAnimationFrame(() => { try { (rf as any).updateNodeInternals?.(id); } catch {} }); } }, 0); }}
                 rows={2}
+                placeholder="Add details…"
                 onKeyDown={(e) => {
                   if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
                     e.preventDefault();
@@ -148,7 +199,32 @@ export default memo(function MindNode({ id, data, selected, onAddChild, onAddSib
           <>
             <div style={{ flex: 1 }}>
               <div className="mm-node__title">{String(d.title)}</div>
-              {d.description ? <div className="mm-node__desc">{String(d.description)}</div> : null}
+              {d.description ? (
+                <>
+                  <div
+                    className="mm-node__desc-wrap"
+                    data-truncated={!isExpanded && truncated ? 'true' : undefined}
+                    style={{ height: contentHeight ? `${targetHeight}px` : 'auto' }}
+                  >
+                    <div ref={contentRef} id={descId} className="mm-node__desc-content" dir="auto">
+                      {String(d.description)}
+                    </div>
+                  </div>
+                  {truncated ? (
+                    <div className="mm-desc-toggle-row">
+                      <button
+                        className="mm-trunc-btn"
+                        aria-expanded={isExpanded}
+                        aria-controls={descId}
+                        onClick={() => onSetNodeUi(id, { isExpanded: !isExpanded })}
+                        title={isExpanded ? 'Show less' : 'Show more'}
+                      >
+                        {isExpanded ? 'Show less' : 'Show more'}
+                      </button>
+                    </div>
+                  ) : null}
+                </>
+              ) : null}
             </div>
             <div className="mm-actions">
               <button aria-label="Edit" title="Edit" onClick={() => onFocusEdit(id)} className="mm-btn mm-btn--icon">

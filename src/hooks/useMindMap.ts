@@ -152,6 +152,7 @@ export function useMindMap(initial?: MindMap) {
             color: n.color,
             parentId: n.parentId,
             pendingEdit: n.id === pendingEditId,
+            ui: n.ui,
           },
           position: { x: pos.x, y: pos.y },
           draggable: true,
@@ -270,6 +271,16 @@ export function useMindMap(initial?: MindMap) {
       return { ...prev, nodes: { ...prev.nodes, [id]: { ...node, collapsed: !node.collapsed } } };
     });
   }, [setMapAndRelayout]);
+
+  const setNodeUi = useCallback((id: NodeId, ui: Partial<{ isExpanded: boolean }>) => {
+    setMap((prev) => {
+      if (!prev) return prev;
+      const node = prev.nodes[id];
+      if (!node) return prev;
+      const nextUi = { ...(node.ui ?? {}), ...ui } as { isExpanded?: boolean };
+      return { ...prev, nodes: { ...prev.nodes, [id]: { ...node, ui: nextUi } } };
+    });
+  }, []);
 
   function collectSubtree(prev: MindMap, id: NodeId, out: Record<NodeId, MindNode>) {
     const node = prev.nodes[id];
@@ -449,6 +460,7 @@ export function useMindMap(initial?: MindMap) {
     setLayoutDensity,
     replaceAll,
     newBlank,
+    setNodeUi,
   } as const;
 }
 

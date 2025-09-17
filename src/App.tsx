@@ -214,6 +214,7 @@ function App() {
             }}
             onNodeMoveStart={mind.beginNodeMove}
             onNodeMoveEnd={mind.endNodeMove}
+            onSetNodeUi={mind.setNodeUi}
           />
           <HelpDialog open={showHelp} onClose={() => setShowHelp(false)} />
         </div>
