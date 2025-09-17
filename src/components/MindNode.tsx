@@ -2,6 +2,7 @@ import { memo, useEffect, useRef, useState } from 'react';
 import { Handle, Position, NodeToolbar } from '@xyflow/react';
 import type { Node, NodeProps } from '@xyflow/react';
 import type { ReactFlowNodeData } from '../types';
+import { getDraft, setDraft, clearDraft } from '../utils/drafts';
 
 interface Props extends NodeProps<Node<ReactFlowNodeData>> {
   onAddChild: (id: string) => string;
@@ -20,6 +21,11 @@ export default memo(function MindNode({ id, data, selected, onAddChild, onAddSib
   const [title, setTitle] = useState(String(d.title));
   const [desc, setDesc] = useState(String(d.description ?? ''));
   const [color, setColor] = useState<string>(d.color ?? '#ffffff');
+  const rootRef = useRef<HTMLDivElement | null>(null);
+
+  const [draftRestored, setDraftRestored] = useState(false);
+  const draftTimerRef = useRef<any>(null);
+
   const titleRef = useRef<HTMLInputElement | null>(null);
   function focusTitleById(targetId: string, attempts = 30) {
     const el = document.getElementById(`mn-title-${targetId}`) as HTMLInputElement | null;
@@ -46,13 +52,60 @@ export default memo(function MindNode({ id, data, selected, onAddChild, onAddSib
     }
   }, [d.pendingEdit, editing, id]);
 
-  function save() { onEdit(id, { title, description: desc, color }); setEditing(false); }
-  function cancel() { setTitle(String(d.title)); setDesc(String(d.description ?? '')); setColor(d.color ?? '#ffffff'); setEditing(false); }
+  // When entering edit mode, try restoring a draft if present
+  useEffect(() => {
+    if (!editing) return;
+    const dr = getDraft(id);
+    if (dr) {
+      setTitle(String(dr.title ?? d.title));
+      setDesc(String(dr.description ?? d.description ?? ''));
+      setColor(dr.color ?? d.color ?? '#ffffff');
+      setDraftRestored(true);
+    } else {
+      setDraftRestored(false);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [editing, id]);
+
+  // Debounced auto-save of draft while editing
+  useEffect(() => {
+    if (!editing) return;
+    if (draftTimerRef.current) clearTimeout(draftTimerRef.current);
+    draftTimerRef.current = setTimeout(() => {
+      setDraft(id, { title, description: desc, color });
+    }, 300);
+    return () => { if (draftTimerRef.current) clearTimeout(draftTimerRef.current); };
+  }, [editing, id, title, desc, color]);
+
+  // Auto-hide the draft restored indicator after a short delay
+  useEffect(() => {
+    if (!draftRestored) return;
+    const t = setTimeout(() => setDraftRestored(false), 2000);
+    return () => clearTimeout(t);
+  }, [draftRestored]);
+
+  // Click-away: exit edit mode when clicking outside the node (keep draft)
+  useEffect(() => {
+    if (!editing) return;
+    function handleDocPointerDown(e: PointerEvent) {
+      const t = e.target as Element | null;
+      const root = rootRef.current;
+      if (!root) return;
+      if (t && root.contains(t)) return; // click inside: ignore
+      // click outside: clear global edit focus
+      onFocusEdit(null);
+    }
+    document.addEventListener('pointerdown', handleDocPointerDown, true);
+    return () => document.removeEventListener('pointerdown', handleDocPointerDown, true);
+  }, [editing, onFocusEdit]);
+
+  function save() { onEdit(id, { title, description: desc, color }); try { clearDraft(id); } catch {} setEditing(false); }
+  function cancel() { try { clearDraft(id); } catch {} setTitle(String(d.title)); setDesc(String(d.description ?? '')); setColor(d.color ?? '#ffffff'); setEditing(false); }
 
   const collapsed = Boolean(d.collapsed);
 
   return (
-    <div onDoubleClick={() => { if (!editing) onFocusEdit(id); }} className="mm-node" data-selected={selected ? 'true' : undefined} style={{ ['--mn-color' as any]: (editing ? color : (d.color ?? 'transparent')) }}>
+    <div ref={rootRef} onDoubleClick={() => { if (!editing) onFocusEdit(id); }} className="mm-node" data-selected={selected ? 'true' : undefined} style={{ ['--mn-color' as any]: (editing ? color : (d.color ?? 'transparent')) }}>
       <div className="mm-node__header">
         <button aria-label={collapsed ? 'Expand' : 'Collapse'} onClick={() => onToggle(id)} title={collapsed ? 'Expand' : 'Collapse'} className="mm-btn mm-btn--icon-sm">
           <svg width="10" height="10" viewBox="0 0 24 24" className="mm-chevron" data-collapsed={collapsed ? 'true' : undefined}>
@@ -85,7 +138,7 @@ export default memo(function MindNode({ id, data, selected, onAddChild, onAddSib
               />
             </div>
             <div className="mm-row-actions">
-              <div className="mm-caption-muted">Ctrl+Enter to save</div>
+              <div className="mm-caption-muted">Ctrl+Enter to save {draftRestored ? <em>(Draft restored)</em> : null}</div>
               <button aria-label="Cancel" title="Cancel (Esc)" onClick={() => { cancel(); onFocusEdit(null); }} className="mm-btn">Cancel</button>
               <input type="color" aria-label="Node color" title="Node color" value={color ?? '#ffffff'} onChange={(e) => setColor(e.target.value)} className="mm-color-swatch" />
               <button aria-label="Save" title="Save (Enter)" onClick={() => { save(); onFocusEdit(null); }} className="mm-btn mm-btn--primary">Save</button>
