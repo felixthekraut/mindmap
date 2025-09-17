@@ -71,7 +71,7 @@ export default function MindMapCanvas(props: MindMapCanvasProps) {
 
 
   return (
-    <div style={{ width: '100%', height: '100%', background: props.bgColor, transition: 'background-color 300ms ease' }}>
+    <div className="mm-canvas" style={{ ['--canvas-bg' as any]: props.bgColor }}>
       <ReactFlow<RFNode, Edge>
         nodes={localNodes}
         edges={props.edges}
